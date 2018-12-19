@@ -1,7 +1,7 @@
 import cool.naiding.easyPaxos.network.Server;
 import cool.naiding.easyPaxos.network.ServerTCPImpl;
 
-public class NetworkServerTest {
+public class TCPServerTest {
     public static void main(String[] args) {
         Server server = new ServerTCPImpl(33333);
         while (true) {

@@ -1,7 +1,7 @@
 import cool.naiding.easyPaxos.network.Client;
 import cool.naiding.easyPaxos.network.ClientTCPImpl;
 
-public class NetworkClientTest {
+public class TCPClientTest {
 
     public static void main(String[] args) {
         Client client = new ClientTCPImpl();
