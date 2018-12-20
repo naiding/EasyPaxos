@@ -1,0 +1,32 @@
+{
+    "id": 2,
+	"host": "localhost",
+	"port": 44446,
+	"timeout": 6000,
+    "logFilename": "./log/user-2.log",
+    "servers" : [{
+        "id" : 0,
+        "host" : "localhost",
+        "port" : 33330
+    },
+    {
+        "id" : 1,
+        "host" : "localhost",
+        "port" : 33331
+    },
+    {
+        "id" : 2,
+        "host" : "localhost",
+        "port" : 33332
+    },
+    {
+        "id" : 3,
+        "host" : "localhost",
+        "port" : 33333
+    },
+    {
+        "id" : 4,
+        "host" : "localhost",
+        "port" : 33334
+    }]
+}

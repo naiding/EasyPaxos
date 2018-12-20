@@ -1,5 +1,7 @@
 package cool.naiding.easyPaxos.network;
 
+import cool.naiding.easyPaxos.util.Serializer;
+
 import java.net.*;
 
 public class ClientUDPImpl implements Client {
@@ -12,5 +14,10 @@ public class ClientUDPImpl implements Client {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void sendPacketTo(String host, int port, Packet packet) {
+        sendTo(host, port, Serializer.serialize(packet));
     }
 }

@@ -1,5 +1,7 @@
 package cool.naiding.easyPaxos.network;
 
+import cool.naiding.easyPaxos.util.Serializer;
+
 import java.io.IOException;
 import java.net.Socket;
 
@@ -15,5 +17,10 @@ public class ClientTCPImpl implements Client {
         } catch (IOException e) {
 			System.err.println("Connection refused to " + host + ":" + port);
         }
+    }
+
+    @Override
+    public void sendPacketTo(String host, int port, Packet packet) {
+        sendTo(host, port, Serializer.serialize(packet));
     }
 }

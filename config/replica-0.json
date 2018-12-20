@@ -1,0 +1,39 @@
+{
+	"id": 0,
+	"host": "localhost",
+	"port": 33330,
+    "prepareQuorumSize": 3,
+    "acceptQuorumSize": 3,
+	"timeout": 3000,
+    "proposerPersistenceFilename": "./persistence/proposer-0.json",
+    "acceptorPersistenceFilename": "./persistence/acceptor-0.json",
+    "logFilename": "./log/replica-0.log",
+    "logHashFilename": "./log/replica-0-hash.log",
+    "debugFilename": "./log/replica-0-debug.log",
+    "allowPersistence": false,
+    "nodes" : [{
+        "id" : 0,
+        "host" : "localhost",
+        "port" : 33330
+    },
+    {
+        "id" : 1,
+        "host" : "localhost",
+        "port" : 33331
+    },
+    {
+        "id" : 2,
+        "host" : "localhost",
+        "port" : 33332
+    },
+    {
+        "id" : 3,
+        "host" : "localhost",
+        "port" : 33333
+    },
+    {
+        "id" : 4,
+        "host" : "localhost",
+        "port" : 33334
+    }]
+}
