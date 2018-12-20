@@ -1,7 +1,5 @@
 package cool.naiding.easyPaxos.member;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
@@ -53,7 +51,9 @@ public class Proposer {
 			this.acceptValue = acceptValue;
 		}
 	}
-	
+
+	private final String myName;
+
 	private final Logger logger;
 	
 	/**
@@ -119,6 +119,7 @@ public class Proposer {
 		this.client = client;
 		this.logger = logger;
 		this.replicaMap = replicaMap;
+		this.myName = "Proposer " + this.config.getId() + " ";
 		
 		recoverFromFile();
 		
@@ -137,21 +138,13 @@ public class Proposer {
 			while (true) {
 				try {
 					ClientRequestMessage message = clientRequestMessageQueue.take();
-					logger.fine(getMyName() + "Take a request from queue " + message);
+					logger.fine(myName + ": Take a request from queue " + message);
 					beginHandleClientRequest(message);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
 		}).start();
-		
-//		new Thread(() -> {
-//			while (true) {
-//				if (!isPrimary) {
-//					prepared = false;
-//				}
-//			}
-//		}).start();
 	}
 	
 	/**
@@ -212,7 +205,7 @@ public class Proposer {
 //			logger.fine("Skip message " + clientRequestMessage);
 //			return;
 //		}
- 		logger.fine(getMyName() + ": step 1 with value" + clientRequestMessage.getValue());
+ 		logger.fine(myName + ": step 1 with value" + clientRequestMessage.getValue());
 		handleClientRequest(clientRequestMessage);
 	}
 	
@@ -222,9 +215,9 @@ public class Proposer {
 	 */
 	private void handleClientRequest(ClientRequestMessage clientRequestMessage) {
 		if (prepared) {
-			logger.fine(getMyName() + ": step 2");
+			logger.fine(myName + ": step 2");
 			int index = nextIndex++;
-			logger.fine(getMyName() + ": step 7 with index " + index);
+			logger.fine(myName + ": step 7 with index " + index);
 			// use same proposal number
 			ProposalNumber proposal = new ProposalNumber(maxRound, config.getId());
 			IndexInfo indexInfo = new IndexInfo(clientRequestMessage, 
@@ -236,11 +229,11 @@ public class Proposer {
 			indexInfoMap.put(index, indexInfo);
 			// timeout action
 			handleAcceptTimeOut(index, acceptMessage);
-			logger.fine(getMyName() + ": step 8");
+			logger.fine(myName + ": step 8");
 		} else {
 			int index = acceptor.getFirstUnchosenIndex();
 			nextIndex = index + 1;
-			logger.fine(getMyName() + ": step 3 with index " + index);
+			logger.fine(myName + ": step 3 with index " + index);
 			// generate new proposal number
 			ProposalNumber proposal = new ProposalNumber(++maxRound, config.getId());
 			// persist maxRound after revise
@@ -251,7 +244,7 @@ public class Proposer {
 			indexInfoMap.put(index, new IndexInfo(clientRequestMessage, proposal, null, IndexState.WAIT_PREPARE));
 			// timeout action
 			handlePrepareTimeOut(index, prepareMessage);
-			logger.fine(getMyName() + ": step 6");
+			logger.fine(myName + ": step 6");
 		}
 	}
 	
@@ -273,17 +266,17 @@ public class Proposer {
 			prepared = false;
 			indexInfoMap.get(prepareResponseMessage.getIndex()).state = IndexState.DROPPED;
 			persistToFile();
-			logger.fine(getMyName() + ": step 6 go to step 1 " + prepareResponseMessage);
+			logger.fine(myName + ": step 6 go to step 1 " + prepareResponseMessage);
 			beginHandleClientRequest(indexInfoMap.get(prepareResponseMessage.getIndex()).requestMessage);
 			return ;
 		}
 		
-		logger.finer(getMyName() + ": in step 6 " + prepareResponseMessage);
+		logger.finer(myName + ": in step 6 " + prepareResponseMessage);
 		// add incoming prepare response message to indexInfo
 		indexInfo.prepareResponseMap.put(prepareResponseMessage.getSenderId(), prepareResponseMessage);
 		// if receive prepare response from majority, process and send accept
 		if (indexInfo.prepareResponseMap.size() >= config.getPrepareQuorumSize()) {
-			logger.finer(getMyName() + ": leaving step 6");
+			logger.finer(myName + ": leaving step 6");
 			int preparedCount = 0, roundNumber = -1;
 			for (PrepareResponseMessage message: indexInfo.prepareResponseMap.values()) {
 				ProposalNumber proposal = message.getAcceptedProposal();
@@ -293,7 +286,7 @@ public class Proposer {
 				}
 				preparedCount += (message.isNoMoreAccepted() ? 1 : 0);
 			}
-			prepared = (preparedCount >= config.getPrepareQuorumSize() ? true : false);
+			prepared = preparedCount >= config.getPrepareQuorumSize();
 			
 			if (indexInfo.acceptValue == null) {
 				if (prepared) {
@@ -305,7 +298,7 @@ public class Proposer {
 				}
 			}
 			
-			logger.fine(getMyName() + ": step 7");
+			logger.fine(myName + ": step 7");
 			AcceptMessage acceptMessage = new AcceptMessage(config.getId(), indexInfo.proposal, index, 
 				indexInfo.acceptValue, acceptor.getFirstUnchosenIndex());
 			// broadcast accept message
@@ -314,7 +307,7 @@ public class Proposer {
 			indexInfoMap.put(index, indexInfo);
 			// timeout action
 			handleAcceptTimeOut(index, acceptMessage);
-			logger.fine(getMyName() + ": step 8");
+			logger.fine(myName + ": step 8");
 		}
 		
 	}
@@ -337,12 +330,12 @@ public class Proposer {
 			indexInfoMap.get(acceptResponseMessage.getIndex()).state = IndexState.DROPPED;
 			persistToFile();
 			// go to step 1
-			logger.fine(getMyName() + ": step 8 go to step 1");
+			logger.fine(myName + ": step 8 go to step 1");
 			beginHandleClientRequest(indexInfoMap.get(acceptResponseMessage.getIndex()).requestMessage);
 			return ;
 		}
 		
-		logger.finer(getMyName() + ": in step 8 " + acceptResponseMessage);
+		logger.finer(myName + ": in step 8 " + acceptResponseMessage);
 		// add incoming accept response message to indexInfo
 		indexInfo.acceptResponseMap.put(acceptResponseMessage.getSenderId(), acceptResponseMessage);
 		// examine firstUnchosenIndex of the acceptor
@@ -357,7 +350,7 @@ public class Proposer {
 		
 		// receive prepare response from majority
 		if (indexInfo.acceptResponseMap.size() >= config.getAcceptQuorumSize()) {
-			logger.fine(getMyName() + ": step 9");
+			logger.fine(myName + ": step 9");
 
 			acceptor.chooseValue(index, indexInfo.acceptValue);
 			acceptor.updateFirstUnchosenIndex();
@@ -365,11 +358,11 @@ public class Proposer {
 			
 			if (indexInfo.acceptValue.equals(indexInfo.requestMessage.getValue())) {
 				sendSuccessResponseToClient(indexInfo.requestMessage);
-				logger.fine(getMyName() + ": step 10 finish ~");
+				logger.fine(myName + ": step 10 finish ~");
 				return;
 			} else {
 				// go to step 2
-				logger.fine(getMyName() + ": step 11 go to step 2");
+				logger.fine(myName + ": step 11 go to step 2");
 				handleClientRequest(indexInfo.requestMessage);
 			}
 		}
@@ -462,28 +455,10 @@ public class Proposer {
 			client.sendPacketTo(requestMessage.getHost(), requestMessage.getPort(), packet);
 	}
 	
-	/**
-	 * Get proposer name for logging
-	 * @return name
-	 */
-	private String getMyName() {
-		return "Proposer " + config.getId() + " ";
-	}
-	
 	private void persistToFile() {
 		if (config.isAllowPersistence()) {
 			String filename = config.getProposerPersistenceFilename();
-			File file = new File(filename);
-			if (!file.getParentFile().exists()) {
-				file.getParentFile().mkdirs();
-			}
-			if (!file.exists()) {
-				try {
-					file.createNewFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
+			FileHelper.createFileIfNotExist(filename);
 			FileHelper.writeToFile(filename, new Gson().toJson(new ProposerPersistenceBean(maxRound)), false);
 		}
 	}
@@ -491,18 +466,7 @@ public class Proposer {
 	private void recoverFromFile() {
 		if (config.isAllowPersistence()) {
 			String filename = config.getProposerPersistenceFilename();
-			File file = new File(filename);
-			if (!file.getParentFile().exists()) {
-				file.getParentFile().mkdirs();
-			}
-			if (!file.exists()) {
-				try {
-					file.createNewFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			
+			FileHelper.createFileIfNotExist(filename);
 			String json = FileHelper.readFromFile(filename);
 			if (json == null || json.length() == 0) {
 				return;

@@ -1,7 +1,6 @@
 package cool.naiding.easyPaxos.member;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -310,17 +309,7 @@ public class Acceptor {
 	void persistToFile() {
 		if (config.isAllowPersistence()) {
 			String filename = config.getAcceptorPersistenceFilename();
-			File file = new File(filename);
-			if (!file.getParentFile().exists()) {
-				file.getParentFile().mkdirs();
-			}
-			if (!file.exists()) {
-				try {
-					file.createNewFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
+			FileHelper.createFileIfNotExist(filename);
 			AcceptorPersistenceBean bean = new AcceptorPersistenceBean(lastAcceptIndex, 
 				firstUnchosenIndex, minProposal, chosenCsn, loggedCsn, acceptedProposal,acceptedValue);
 			FileHelper.writeToFile(filename, new Gson().toJson(bean), false);
@@ -330,17 +319,7 @@ public class Acceptor {
 	void recoverFromFile() {
 		if (config.isAllowPersistence()) {
 			String filename = config.getAcceptorPersistenceFilename();
-			File file = new File(filename);
-			if (!file.getParentFile().exists()) {
-				file.getParentFile().mkdirs();
-			}
-			if (!file.exists()) {
-				try {
-					file.createNewFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
+			FileHelper.createFileIfNotExist(filename);
 			String json = FileHelper.readFromFile(filename);
 			if (json == null || json.length() == 0) {
 				return;

@@ -13,11 +13,18 @@ import com.google.gson.Gson;
 
 public class FileHelper {
 
-	public static void createFileIfNotExist(String addr) throws IOException {
-		File file = new File(addr);
-		if (!file.exists()) {
-			file.createNewFile();
-		}
+	public static void createFileIfNotExist(String filename) {
+        File file = new File(filename);
+        if (!file.getParentFile().exists()) {
+            file.getParentFile().mkdirs();
+        }
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 	}
 	
 	public static String readFromFile(String filename) {

@@ -1,19 +1,14 @@
 package cool.naiding.easyPaxos.member;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.FileHandler;
-import java.util.logging.Formatter;
 import java.util.logging.Level;
-import java.util.logging.LogRecord;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 import cool.naiding.easyPaxos.message.HeartBeatMessage;
 import cool.naiding.easyPaxos.network.*;
 import cool.naiding.easyPaxos.util.FileHelper;
+import cool.naiding.easyPaxos.util.LoggerHelper;
 import cool.naiding.easyPaxos.util.MemberHelper;
 import cool.naiding.easyPaxos.util.Serializer;
 
@@ -70,7 +65,7 @@ public class Replica {
 		this.config = FileHelper.readJsonFile(this.configFilename, ReplicaConfig.class);
 		System.out.println(this.config);
 		
-		configLogger();
+		setupLogger();
 		
 		this.replicaMap = new HashMap<>(this.config.getNodes().size());
 		for (ReplicaNode node : this.config.getNodes()) {
@@ -82,55 +77,18 @@ public class Replica {
 	}
 	
 	/**
-	 * Config logger
+	 * Setup logger
 	 */
-	private void configLogger() {
+	private void setupLogger() {
 		logger = Logger.getLogger("replicaLogger" + config.getId());
 		logger.setLevel(Level.ALL);
 		logger.setUseParentHandlers(false);
 //		ConsoleHandler consoleHandler = new ConsoleHandler();
 //		consoleHandler.setLevel(Level.FINE);
 //		logger.addHandler(consoleHandler);
-		
-		try {
-			String filename = config.getDebugFilename();
-			File file = new File(filename);
-			if (!file.getParentFile().exists()) {
-				file.getParentFile().mkdirs();
-			}
-			FileHandler fileHandler = new FileHandler(filename, config.isAllowPersistence());
-			fileHandler.setFormatter(new SimpleFormatter());
-			fileHandler.setFormatter(new Formatter() {
-				@Override
-				public String format(LogRecord lr) {
-					return lr.getMessage() + System.lineSeparator();
-				}
-			});
-			fileHandler.setLevel(Level.FINER);
-			logger.addHandler(fileHandler);
-		} catch (SecurityException | IOException e) {
-			e.printStackTrace();
-		}
-		
-		try {
-			String filename = config.getLogFilename();
-			File file = new File(filename);
-			if (!file.getParentFile().exists()) {
-				file.getParentFile().mkdirs();
-			}
-			FileHandler fileHandler = new FileHandler(filename, config.isAllowPersistence());
-			fileHandler.setFormatter(new SimpleFormatter());
-			fileHandler.setFormatter(new Formatter() {
-				@Override
-				public String format(LogRecord lr) {
-					return lr.getMessage() + System.lineSeparator();
-				}
-			});
-			fileHandler.setLevel(Level.SEVERE);
-			logger.addHandler(fileHandler);
-		} catch (SecurityException | IOException e) {
-			e.printStackTrace();
-		}
+
+		logger.addHandler(LoggerHelper.getFileHandler(config.getDebugFilename(), config.isAllowPersistence(), Level.FINER));
+		logger.addHandler(LoggerHelper.getFileHandler(config.getLogFilename(), config.isAllowPersistence(), Level.SEVERE));
 	}
 	
 	/**
