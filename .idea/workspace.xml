@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="429a392d-8579-41a0-8a46-8cf2ec46068c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/util/LoggerHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/member/Acceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/member/Acceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/member/Proposer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/member/Proposer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/member/Replica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/member/Replica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/util/FileHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/util/FileHelper.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,38 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/member/Proposer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7967">
-              <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/member/Acceptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="317" column="4" lean-forward="true" selection-start-line="317" selection-start-column="4" selection-end-line="317" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/util/FileHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -266,7 +230,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545284043226" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545284138157" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -344,16 +308,15 @@
       <updated>1545239737353</updated>
       <workItem from="1545239738870" duration="14000" />
       <workItem from="1545251288184" duration="5863000" />
-      <workItem from="1545275493251" duration="6712000" />
+      <workItem from="1545275493251" duration="6858000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12589000" />
+    <option name="totallyTimeSpent" value="12735000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-346" y="-1057" width="1920" height="1057" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22151224" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -364,7 +327,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32953367" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27253887" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27253887" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -372,7 +335,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.24248704" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24248704" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -783,8 +746,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/member/Proposer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7967">
-          <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+        <state relative-caret-position="8496">
+          <caret line="472" column="13" lean-forward="true" selection-start-line="472" selection-start-column="13" selection-end-line="472" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -797,8 +763,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cool/naiding/easyPaxos/member/Acceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="317" column="4" lean-forward="true" selection-start-line="317" selection-start-column="4" selection-end-line="317" selection-end-column="4" />
+        <state relative-caret-position="5724">
+          <caret line="330" column="48" selection-start-line="330" selection-start-column="48" selection-end-line="330" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
