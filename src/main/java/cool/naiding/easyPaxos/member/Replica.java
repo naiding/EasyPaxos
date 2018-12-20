@@ -12,12 +12,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import cool.naiding.easyPaxos.message.HeartBeatMessage;
-import cool.naiding.easyPaxos.network.Client;
-import cool.naiding.easyPaxos.network.ClientTCPImpl;
-import cool.naiding.easyPaxos.network.Packet;
-import cool.naiding.easyPaxos.network.PacketContent;
-import cool.naiding.easyPaxos.network.Server;
-import cool.naiding.easyPaxos.network.ServerTCPImpl;
+import cool.naiding.easyPaxos.network.*;
 import cool.naiding.easyPaxos.util.FileHelper;
 import cool.naiding.easyPaxos.util.MemberHelper;
 import cool.naiding.easyPaxos.util.Serializer;
@@ -81,7 +76,7 @@ public class Replica {
 		for (ReplicaNode node : this.config.getNodes()) {
 			this.replicaMap.put(node.getId(), node);
 		}
-		this.client = new ClientTCPImpl();
+		this.client = new ClientUDPImpl();
 		this.acceptor = new Acceptor(config, logger, client, replicaMap);
 		this.proposer = new Proposer(config, logger, client, replicaMap, this.acceptor);
 	}
@@ -143,7 +138,7 @@ public class Replica {
 	 */
 	public void start() {
 		runHeartBeat();
-		Server server = new ServerTCPImpl(config.getPort());
+		Server server = new ServerUDPImpl(config.getPort());
 		new Thread(() -> {
 			while (true) {
 				byte[] message = server.receive();

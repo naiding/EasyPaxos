@@ -15,14 +15,7 @@ import java.util.logging.SimpleFormatter;
 import cool.naiding.easyPaxos.message.ClientRequestMessage;
 import cool.naiding.easyPaxos.message.ClientResponseMessage;
 import cool.naiding.easyPaxos.message.Value;
-import cool.naiding.easyPaxos.network.Client;
-import cool.naiding.easyPaxos.network.ClientTCPImpl;
-import cool.naiding.easyPaxos.network.Packet;
-import cool.naiding.easyPaxos.network.PacketContent;
-import cool.naiding.easyPaxos.network.PacketContentTypeEnum;
-import cool.naiding.easyPaxos.network.PacketReceiverEnum;
-import cool.naiding.easyPaxos.network.Server;
-import cool.naiding.easyPaxos.network.ServerTCPImpl;
+import cool.naiding.easyPaxos.network.*;
 import cool.naiding.easyPaxos.util.FileHelper;
 import cool.naiding.easyPaxos.util.PacketFactory;
 import cool.naiding.easyPaxos.util.Serializer;
@@ -53,8 +46,8 @@ public class User {
 		this.config = FileHelper.readJsonFile(configFilename, UserConfig.class);
 		System.out.println(this.config);
 				
-		client = new ClientTCPImpl();
-		server = new ServerTCPImpl(config.getPort());
+		client = new ClientUDPImpl();
+		server = new ServerUDPImpl(config.getPort());
 
 		configLogger();
 		
