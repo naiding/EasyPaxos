@@ -1,5 +1,5 @@
-import cool.naiding.easyPaxos.network.Client;
-import cool.naiding.easyPaxos.network.ClientTCPImpl;
+import com.naidingz.easyPaxos.network.Client;
+import com.naidingz.easyPaxos.network.ClientTCPImpl;
 
 public class TCPClientTest {
 

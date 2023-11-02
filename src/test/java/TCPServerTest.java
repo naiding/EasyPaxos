@@ -1,5 +1,5 @@
-import cool.naiding.easyPaxos.network.Server;
-import cool.naiding.easyPaxos.network.ServerTCPImpl;
+import com.naidingz.easyPaxos.network.Server;
+import com.naidingz.easyPaxos.network.ServerTCPImpl;
 
 public class TCPServerTest {
     public static void main(String[] args) {

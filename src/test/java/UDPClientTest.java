@@ -1,5 +1,5 @@
-import cool.naiding.easyPaxos.network.Client;
-import cool.naiding.easyPaxos.network.ClientUDPImpl;
+import com.naidingz.easyPaxos.network.Client;
+import com.naidingz.easyPaxos.network.ClientUDPImpl;
 
 public class UDPClientTest {
     public static void main(String[] args) {

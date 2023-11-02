@@ -15,7 +15,7 @@ In order to run and test easyPaxos, you need to import the project as a Maven pr
 
 
 
-The main implementation ideas come from the [user study](https://ramcloud.stanford.edu/~ongaro/userstudy/) of John Ousterhout and Diego Ongaro (Stanford University). Their [slides](https://ramcloud.stanford.edu/~ongaro/userstudy/paxos.pdf) and [paxos summary](https://ramcloud.stanford.edu/~ongaro/userstudy/paxossummary.pdf) are very very helpful.
+The main implementation ideas come from the [user study](https://ongardie.net/static/raft/userstudy/) of John Ousterhout and Diego Ongaro (Stanford University). Their [slides](https://ongardie.net/static/raft/userstudy/paxos.pdf) and [paxos summary](https://ongardie.net/static/raft/userstudy/paxossummary.pdf) are very helpful.
 
 
 

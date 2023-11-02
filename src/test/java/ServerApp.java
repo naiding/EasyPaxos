@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-import cool.naiding.easyPaxos.member.Replica;
+import com.naidingz.easyPaxos.member.Replica;
 
 public class ServerApp {
 

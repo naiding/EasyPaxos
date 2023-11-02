@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-import cool.naiding.easyPaxos.member.User;
+import com.naidingz.easyPaxos.member.User;
 
 public class UserApp {
 

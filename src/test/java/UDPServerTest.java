@@ -1,9 +1,5 @@
-import cool.naiding.easyPaxos.network.Server;
-import cool.naiding.easyPaxos.network.ServerUDPImpl;
-
-import java.io.IOException;
-import java.net.*;
-import java.util.Scanner;
+import com.naidingz.easyPaxos.network.Server;
+import com.naidingz.easyPaxos.network.ServerUDPImpl;
 
 public class UDPServerTest {
     public static void main(String[] args) {
