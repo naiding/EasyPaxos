@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fc214a75-d47f-4886-98b5-0aedc9ffde6b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/replica-0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/replica-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/replica-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/replica-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/replica-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/user-0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/user-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/user-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/references/paxos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/references/paxossummary.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/member/Acceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/member/AcceptorPersistenceBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/member/Learner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/member/Proposer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/member/ProposerPersistenceBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/member/Replica.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/member/ReplicaConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/member/ReplicaNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/member/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/member/UserConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/AcceptMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/AcceptResponseMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/ClientMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/ClientRequestMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/ClientResponseMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/HeartBeatMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/PrepareMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/PrepareResponseMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/ProposalNumber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/ReplicaMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/SuccessMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/SuccessResponseMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/message/Value.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/network/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/network/ClientTCPImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/network/ClientUDPImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/network/Packet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/network/PacketContent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/network/PacketContentTypeEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/network/PacketReceiverEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/network/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/network/ServerTCPImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/network/ServerUDPImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/util/FileHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/util/LoggerHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/util/MemberHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/util/PacketFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naidingz/easyPaxos/util/Serializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ServerApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TCPClientTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TCPServerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UDPClientTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UDPServerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UserApp.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2j5IocmZcK8IC28A8qxUKuasqSK" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/leonz/IdeaProjects/EasyPaxos&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc214a75-d47f-4886-98b5-0aedc9ffde6b" name="Changes" comment="" />
+      <created>1720670687277</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720670687277</updated>
+    </task>
+    <servers />
+  </component>
+</project>
