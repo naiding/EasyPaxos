@@ -168,6 +168,11 @@ public class Replica {
 
 		new Thread(() -> {
 			while (true) {
+				try {
+					Thread.sleep(config.getTimeout() / 2);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				long currentTime = System.currentTimeMillis();
 				if (getPrimaryId() == config.getId()) {
 					lastViewTime = System.currentTimeMillis();
